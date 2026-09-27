@@ -1,13 +1,13 @@
 # micrograd-learning
 
 从零手写 micrograd（Karpathy《Neural Networks: Zero to Hero》教学项目的复现）：
-一个极简的标量级自动求导引擎 + 神经网络库，只有约 110 行纯 Python，无任何第三方依赖。
+一个极简的标量级自动求导引擎 + 神经网络库
 
 ## 文件结构
 
 ```
 micrograd-learning/
-├── micrograd.py   # 核心：Value（自动微分）、Neuron / Layer / MLP
+├── micrograd.py   # 核心：Value（自动Neuron / Layer / MLP
 ├── README.md
 └── .gitignore
 ```

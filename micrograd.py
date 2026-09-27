@@ -59,8 +59,15 @@ class Value:
         return self * -1
     def __sub__(self,other):
         return self + (-other)
+    def __pow__(self, other):
+        #前向：算出self。data的other次方，生成新节点out
+        out = Value(self.data ** other,(self,),'**')
+        #反向d(xⁿ)/dx = n·xⁿ⁻¹
+        def _backward():
+            self.grad += (other * self.data ** (other - 1)) * out.grad #幂函数求导公式
+        out._backward = _backward
+        return out
 
-    
     def backward(self):  #用DFS构建拓扑排序
         topo=[]
         visited = set()
