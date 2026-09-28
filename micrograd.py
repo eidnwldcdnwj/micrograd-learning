@@ -19,6 +19,8 @@ class Value:
             other.grad += out.grad
         out._backward = _backward
         return out
+    def __radd__(self,other): #反向加法，保证 2 + Value(3) 也能算
+        return self + other
 
     def __mul__(self,other):
         other = other if isinstance(other,Value) else Value(other)
